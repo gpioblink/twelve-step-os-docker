@@ -1,0 +1,2 @@
+export PATH=$PATH:$(pwd)
+export PROMPT_COMMAND='echo -ne "\033]0;(twos) ${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'

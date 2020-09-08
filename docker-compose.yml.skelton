@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  build:
+    build:
+      context: ./builder
+    command:
+      [MAKE_COMMAND]
+    volumes:
+      - [BUILD_TARGET_DIRECTORY]:/env/target
+  write:
+    build:
+      context: ./writer
+    command:
+      [MAKE_COMMAND]
+    volumes:
+      - [BUILD_TARGET_DIRECTORY]:/env/target
+      - [SERIAL_DEVICE]:/dev/ttyUSB0
