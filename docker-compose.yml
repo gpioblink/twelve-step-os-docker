@@ -1,0 +1,13 @@
+# DO NOT MODIFY THIS FILE. THIS FILE WAS AUTO-GENERATED!
+version: "3.8"
+
+services:
+  build:
+    build:
+      context: ./image
+    command:
+      make write
+    volumes:
+      - /home/gpioblink/mylearn/osdev/osbook_03/02/bootload:/env/lec/type
+    devices:
+      - /dev/ttyUSB0:/dev/cuad0:mwr

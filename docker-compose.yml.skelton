@@ -3,16 +3,10 @@ version: "3.8"
 services:
   build:
     build:
-      context: ./builder
+      context: ./image
     command:
       [MAKE_COMMAND]
     volumes:
-      - [BUILD_TARGET_DIRECTORY]:/env/target
-  write:
-    build:
-      context: ./writer
-    command:
-      [MAKE_COMMAND]
-    volumes:
-      - [BUILD_TARGET_DIRECTORY]:/env/target
-      - [SERIAL_DEVICE]:/dev/ttyUSB0
+      - [BUILD_TARGET_DIRECTORY]:/env/lec/type
+    devices:
+      - [SERIAL_DEVICE]:/dev/cuad0:mwr
